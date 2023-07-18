@@ -17,7 +17,7 @@ namespace MoodAnalyser
         {
             this.message = message;
         }
-        public string AnalyseMood(string message)
+        public string AnalyseMood()
         {
             if (message.ToLower().Contains("sad"))
             {
