@@ -8,6 +8,15 @@ namespace MoodAnalyser
 {
     public class MoodAnalyserBuilder
     {
+        public string message;
+        public MoodAnalyserBuilder()
+        {
+
+        }
+        public MoodAnalyserBuilder(string message)
+        {
+            this.message = message;
+        }
         public string AnalyseMood(string message)
         {
             if (message.ToLower().Contains("sad"))
