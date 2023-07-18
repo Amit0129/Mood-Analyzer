@@ -6,9 +6,12 @@ namespace MoodAnalyser_Test
     public class MoodAnalyse_Test
     {
         [TestMethod]
-        public void Test()
+        public void GivenSadMood_ShouldReturnSad()
         {
-            
+            MoodAnalyserBuilder moodAnalyser = new MoodAnalyserBuilder();
+            string result = moodAnalyser.AnalyseMood("I am in Sad Mood");
+            string expexted = "SAD";
+            Assert.AreEqual(result, expexted);
         }
     }
 }
