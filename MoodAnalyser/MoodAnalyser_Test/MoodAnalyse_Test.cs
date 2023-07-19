@@ -31,16 +31,31 @@ namespace MoodAnalyser_Test
         {
             try
             {
-                //Arrange - it will set up the testing object
+                //Arrange - it will set up the testing object.
                 MoodAnalyserBuilder moodAnalyser = new MoodAnalyserBuilder(null);
-                //Act - it will perform the actual work what we  want  test
+                //Act - it will perform the actual work what we  want  test.
                 string result = moodAnalyser.AnalyseMood();
                 
             }
             catch (MoodAnalysisException ex)
             {
-                //Assert - verify result 
+                //Assert - verify result by equal actual and expected output.
                 Assert.AreEqual(ex.Message, "Messsage should not be null");
+            }
+        }
+        [TestMethod]
+        public void GivenEmptyMood_ShouldThrowCostomException()
+        {
+            try
+            {
+                //Arrange - it will set up the testing object.
+                MoodAnalyserBuilder moodAnalyser = new MoodAnalyserBuilder("");
+                //Act - it will perform the actual work what we  want  test.
+            }
+            catch (MoodAnalysisException ex)
+            {
+                //Assert - verify result by equal actual and expected output.
+                Assert.AreEqual(ex.Message, "Messsage should not be empty");
             }
         }
     }
