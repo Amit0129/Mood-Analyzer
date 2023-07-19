@@ -26,5 +26,6 @@ namespace MoodAnalyser_Test
             string result = moodAnalyser.AnalyseMood();
             Assert.AreEqual(result, "HAPPY");
         }
+       
     }
 }

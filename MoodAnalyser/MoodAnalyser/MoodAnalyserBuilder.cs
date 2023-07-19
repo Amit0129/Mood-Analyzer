@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static MoodAnalyser.MoodAnalysisException;
 
 namespace MoodAnalyser
 {
     public class MoodAnalyserBuilder
     {
         public string message;
-        public MoodAnalyserBuilder()
-        {
-
-        }
         public MoodAnalyserBuilder(string message)
         {
             this.message = message;
@@ -32,7 +29,8 @@ namespace MoodAnalyser
             }
             catch
             {
-                return "HAPPY";
+                //return "HAPPY";
+                throw new MoodAnalysisException("Messsage should not be null", ExceptionType.NULL_MOOD);
             }
             
         }
