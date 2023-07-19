@@ -26,6 +26,22 @@ namespace MoodAnalyser_Test
             string result = moodAnalyser.AnalyseMood();
             Assert.AreEqual(result, "HAPPY");
         }
-       
+        [TestMethod]
+        public void GivenNullMood_ShouldThrowCostomException()
+        {
+            try
+            {
+                //Arrange - it will set up the testing object
+                MoodAnalyserBuilder moodAnalyser = new MoodAnalyserBuilder(null);
+                //Act - it will perform the actual work what we  want  test
+                string result = moodAnalyser.AnalyseMood();
+                
+            }
+            catch (MoodAnalysisException ex)
+            {
+                //Assert - verify result 
+                Assert.AreEqual(ex.Message, "Messsage should not be null");
+            }
+        }
     }
 }
