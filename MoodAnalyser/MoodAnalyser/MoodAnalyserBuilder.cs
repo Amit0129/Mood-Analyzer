@@ -40,7 +40,30 @@ namespace MoodAnalyser
                 //return "HAPPY";
                 throw new MoodAnalysisException("Messsage should not be null", ExceptionType.NULL_MOOD);
             }
-            
+        }
+        public string AnalyseMood(string message)
+        {
+            try
+            {
+                if (message.Equals(string.Empty))
+                {
+                    throw new MoodAnalysisException("Messsage should not be empty", ExceptionType.EMPTY_MOOD);
+                }
+                if (message.ToLower().Contains("sad"))
+                {
+                    return "SAD";
+                }
+                else
+                {
+                    return "HAPPY";
+                }
+            }
+            catch
+            {
+                //return "HAPPY";
+                throw new MoodAnalysisException("Messsage should not be null", ExceptionType.NULL_MOOD);
+            }
+
         }
     }
 }

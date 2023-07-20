@@ -35,7 +35,7 @@ namespace MoodAnalyser_Test
                 MoodAnalyserBuilder moodAnalyser = new MoodAnalyserBuilder(null);
                 //Act - it will perform the actual work what we  want  test.
                 string result = moodAnalyser.AnalyseMood();
-                
+
             }
             catch (MoodAnalysisException ex)
             {
@@ -57,6 +57,15 @@ namespace MoodAnalyser_Test
                 //Assert - verify result by equal actual and expected output.
                 Assert.AreEqual(ex.Message, "Messsage should not be empty");
             }
+        }
+        [TestMethod]
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
+        {
+            string message = "I am Sad";
+            MoodAnalyserBuilder moodAnalyser = new MoodAnalyserBuilder();
+            object expected = moodAnalyser.AnalyseMood(message);
+            object obj = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyser.MoodAnalyserBuilder", "MoodAnalyserBuilder");
+            expected.Equals(obj);
         }
     }
 }
