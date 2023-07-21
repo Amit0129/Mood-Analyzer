@@ -26,13 +26,13 @@ namespace MoodAnalyser
                 }
                 catch (ArgumentNullException)
                 {
-                    throw new MoodAnalysisException("Class not found",ExceptionType.NO_SUCH_CLASS);
+                    throw new MoodAnalysisException("Class not found", MoodAnalysisException.ExceptionType.NO_SUCH_CLASS);
 
                 }
             }
             else
             {
-                throw new MoodAnalysisException( "Constructor is not found", ExceptionType.NO_SUCH_METHOD);
+                throw new MoodAnalysisException("Constructor is not found", MoodAnalysisException.ExceptionType.NO_SUCH_METHOD);
             }
         }
     }

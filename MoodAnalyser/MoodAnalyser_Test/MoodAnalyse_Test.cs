@@ -1,4 +1,6 @@
 using MoodAnalyser;
+using Newtonsoft.Json.Linq;
+using System.Security.Claims;
 
 namespace MoodAnalyser_Test
 {
@@ -58,6 +60,7 @@ namespace MoodAnalyser_Test
                 Assert.AreEqual(ex.Message, "Messsage should not be empty");
             }
         }
+        //TC-4.1
         [TestMethod]
         public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
         {
@@ -66,6 +69,21 @@ namespace MoodAnalyser_Test
             object expected = moodAnalyser.AnalyseMood(message);
             object obj = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyser.MoodAnalyserBuilder", "MoodAnalyserBuilder");
             expected.Equals(obj);
+        }
+        //TC-4.2
+        [TestMethod]
+        public void GivenMoodAnalyseClassNameWrong_ShouldReturnMoodAnalyseObject()
+        {
+            try
+            {
+                object obj = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyser.MoodAnalyserBuild", "MoodAnalyserBuild");
+            }
+            catch (MoodAnalysisException exp)
+
+            {
+                Assert.AreEqual("Class not found", exp.Message);
+            }
+
         }
     }
 }
