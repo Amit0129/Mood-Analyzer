@@ -83,7 +83,19 @@ namespace MoodAnalyser_Test
             {
                 Assert.AreEqual("Class not found", exp.Message);
             }
-
+        }
+        //TC-4.3
+        [TestMethod]
+        public void GivenClassWhenConstructorNotProper_ShouldThrowMoodAnalysisException()
+        {
+            try
+            {
+                object obj = MoodAnalyserFactory.CreateMoodAnalyse("MoodAnalyser.MoodAnalyserBuilder", "MoodAnalyserBuild");
+            }
+            catch (MoodAnalysisException exc)
+            {
+                Assert.AreEqual("Constructor is not found", exc.Message);
+            }
         }
     }
 }
